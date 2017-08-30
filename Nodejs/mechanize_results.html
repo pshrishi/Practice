@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html id="Container" style="position:relative;">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-Time Flex Trip - Connector</title>
+    <link href="/Content/css?v=eO6vB-uKbDR3doX3L2V5yJrqJgtd7V3LwCvKzZnZux01" rel="stylesheet"/>
+
+    <script src="/bundles/modernizr?v=wBEWDufH_8Md-Pbioxomt90vm6tJN2Pyy9u9zHtWsPo1"></script>
+
+    <link href="/Content/kendo/2015.2.902/kendo.common.min.css" rel="stylesheet" type="text/css" />
+    
+    <link href="/Content/kendo/2015.2.902/kendo.dataviz.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/kendo/2015.2.902/kendo.metro.min.css" rel="stylesheet" type="text/css" />
+    
+    <link href="/Content/kendo/2015.2.902/kendo.dataviz.metro.min.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/kendo/2015.2.902/jquery.min.js"></script>
+    <script src="/Scripts/kendo/2015.2.902/kendo.all.min.js"></script>
+    <script src="/Scripts/kendo/2015.2.902/kendo.aspnetmvc.min.js"></script>
+    <script src="/Scripts/kendo.modernizr.custom.js"></script>
+    <script>
+        function butErrCopy_click() {
+            var msg = document.getElementById("divErrMessage").innerHTML;
+            if (window.clipboardData && clipboardData.setData) {
+                clipboardData.setData('text', msg);
+            }
+        }
+        function butErrClose_click() {
+            $("#Error").data("kendoWindow").close();
+        }
+    </script>
+</head>
+<body>
+    <a id="a_top" style="height:0px;"></a>
+    <div class="top-header">
+        <span class="top-header-left">
+            RE&F
+        </span>
+        <span class="top-header-right">
+            Connector portal
+        </span>
+    </div>
+    <div style="position: absolute; top: 74px; width: 100%; background-color: #00B294;">
+<form action="/Account/LogOff" id="logoutForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="4pulhE2Ku_d428UI-eX9Ec0WNRVc3hjWhcCrG5oSrYUOuO9c1BYEIHWt8m6Wb51nk3wWRnRexXMG58F4nTAFR80cMnOcRgw4nHBXNjEsrbtze8eSlzFwH0EX_xw4Mb7BGawV_MWIDTeGD_YY2VIkDQ2" /></form>
+<ul class="k-widget k-reset k-header k-menu" id="MyMenu"><li class="k-item k-state-default"><a class="k-link" href="/">Home<span class="k-icon k-i-arrow-s"></span></a><ul class="k-group k-menu-group"><li class="k-item k-state-default"><a class="k-link" href="/Account/Logoff">Log Off</a></li></ul></li><li class="k-item k-state-default"><span class="k-link">Schedules<span class="k-icon k-i-arrow-s"></span></span><ul class="k-group k-menu-group"><li class="k-item k-state-default"><a class="k-link" href="/FindStops">Find Bus Stops</a></li><li class="k-item k-state-default"><a class="k-link" href="/WalkonPossibility">Published Schedules</a></li><li class="k-item k-state-default"><a class="k-link" href="/Schedules/ETA">Where&#39;s my Bus?</a></li></ul></li><li class="k-item k-state-default"><span class="k-link">FAQ<span class="k-icon k-i-arrow-s"></span></span><ul class="k-group k-menu-group"><li class="k-item k-state-default"><a class="k-link" href="/FAQ">Frequently Asked Questions</a></li></ul></li><li class="k-item k-state-default"><span class="k-link">Policies<span class="k-icon k-i-arrow-s"></span></span><ul class="k-group k-menu-group"><li class="k-item k-state-default"><a class="k-link" href="/Policies">Reservation Policies</a></li></ul></li><li class="k-item k-state-highlight k-state-default"><span class="k-link">Reservations<span class="k-icon k-i-arrow-s"></span></span><ul class="k-group k-menu-group"><li class="k-item k-state-default"><a class="k-link" href="/Flex/MyFlex">My Flex Trips</a></li><li class="k-item k-state-selected"><a class="k-link" href="/Flex/oneTimeFlex">One-time Flex Trip</a></li></ul></li><li class="k-item k-state-default"><span class="k-link">Statistics<span class="k-icon k-i-arrow-s"></span></span><ul class="k-group k-menu-group"><li class="k-item k-state-default"><a class="k-link" href="/MyTrips/MyTripsReport">My Trips Report</a></li><li class="k-item k-state-default"><a class="k-link" href="/MyTrips/statistics">Environmental Statistics</a></li></ul></li><li class="k-item k-state-default"><span class="k-link">Settings<span class="k-icon k-i-arrow-s"></span></span><ul class="k-group k-menu-group"><li class="k-item k-state-default"><a class="k-link" href="/MySettings">My Settings</a></li><li class="k-item k-state-default"><a class="k-link" href="/PasswordSettings">Password Settings</a></li><li class="k-item k-state-default"><a class="k-link" href="/WheelchairSettings">Wheelchair Settings</a></li></ul></li><li class="k-item k-state-default"><span class="k-link">Support<span class="k-icon k-i-arrow-s"></span></span><ul class="k-group k-menu-group"><li class="k-item k-state-default"><a class="k-link" href="/Support">Customer Support</a></li></ul></li></ul><script>
+	jQuery(function(){jQuery("#MyMenu").kendoMenu({});});
+</script>        
+        <style scoped="scoped">
+            #menu h2 {
+                font-size: 2em;
+                text-transform: uppercase;
+                padding: 5px 10px;
+            }
+
+            #template img {
+                margin: 5px 20px 0px 0px;
+                float: left;
+            }
+
+            #template {
+                width: 580px;
+            }
+
+                #template ol {
+                    float: left;
+                    margin: 0;
+                    padding: 10px 10px 0 10px;
+                }
+
+                #template:after {
+                    content: ".";
+                    display: block;
+                    height: 0;
+                    clear: both;
+                    visibility: hidden;
+                }
+
+                #template .k-button {
+                    float: left;
+                    clear: left;
+                    margin: 5px 0px 5px 12px;
+                }
+        </style>
+    </div>
+    <div style="margin-left: 100px; margin-right: 100px; margin-top: 50px; margin-bottom: 50px;">
+        <div class="PageContent">
+            
+
+
+<h1>one-time flex trip</h1>
+
+<script src="/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/Scripts/Connector.js"></script>
+
+<div style="float:left; margin-bottom: 125px; margin-left:0px !important;width:100%" id="divPartial1">
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".k-datepicker .k-picker-wrap input[type=text]").attr("readonly", "readonly");
+        //radio button event
+        $("input[name='AMorPMValue']").change(function () {
+            var selectedRadio = $("input[name='AMorPMValue']:checked").val();
+            if (selectedRadio === 'AM') {
+                radioButton_changed(true);
+            } else {
+                radioButton_changed(false);
+            }
+        });
+        $("#NeedsWheelchair").change(function () {
+            kendo.ui.progress($("#Container"), true);
+            var isam = ($('[name="AMorPMValue"]:radio:checked').val() === "AM");
+            updateForm(isam);
+            kendo.ui.progress($("#Container"), false);
+        });
+        $("input[name='rbScheds']").click(function () {
+            //$("#button").data("kendoButton").enable(true);
+            enableordisablebutton();
+        });
+    });
+    function clear(clearRoute) {
+        var butt = $("#button");
+        if (butt != null) {
+            $(butt).hide();
+        }
+        var ts = $("#tableStops");
+        if (ts != null) {
+            $(ts).hide();
+        }
+        var tscheds = $("#tableSchedules");
+        if (tscheds != null) {
+            $(tscheds).hide();
+            $(tscheds).html('');
+        }
+
+        var ddld = $("#DropDownListDrop").data("kendoDropDownList");
+        if (ddld != null) {
+            var doptions = ddld.options;
+            ddld.destroy();
+            // initialize it again with the current options
+            $("#DropDownListDrop").empty().kendoDropDownList(doptions);
+            $("#DropDownListDrop").val("");
+        }
+
+        var ddlp = $("#DropDownListPick").data("kendoDropDownList");
+        if (ddlp != null) {
+            var poptions = ddlp.options;
+            ddlp.destroy();
+            // initialize it again with the current options
+            $("#DropDownListPick").empty().kendoDropDownList(poptions);
+            $("#DropDownListPick").val("");
+        }
+
+        if (clearRoute) {
+            $("#DropDownList").data("kendoDropDownList").dataSource.data([]);
+        }
+    }
+    function radioButton_changed(isAM) {
+        kendo.ui.progress($("#Container"), true);
+        clear(true);
+        updateForm(isAM);
+        kendo.ui.progress($("#Container"), false);
+    }
+    function DatePicker_change(e) {
+        kendo.ui.progress($("#Container"), true);
+        clear(true);
+        var isam = ($('[name="AMorPMValue"]:radio:checked').val() == "AM");
+        updateForm(isam);
+        kendo.ui.progress($("#Container"), false);
+    }
+    function updateForm(isAM) {
+        kendo.ui.progress($("#Container"), true);
+        var dt = $("#DatePicker").val();
+        var rid = parseInt($("#DropDownList").val());
+        var pid = parseInt($("#DropDownListPick").val());
+        var did = parseInt($("#DropDownListDrop").val());
+
+        var bike = $('#NeedsBikeRack').prop('checked');
+        var park = $('#NeedsParking').prop('checked');
+        var wc = $('#NeedsWheelchair').prop('checked');
+        var tid = parseInt($("input[name='rbScheds']:checked").val());
+
+        $.ajax({
+            url: "/Flex/ReturnOneTimeFlexPartial",
+            type: "POST",
+            data: { isAM: isAM, date: dt, routeID: rid, pickID: pid, dropID: did, bike: bike, park: park, wc: wc, tripID: tid }
+        }).done(function (partialViewResult) {
+            $("#divPartial1").html(partialViewResult);
+            kendo.ui.progress($("#Container"), false);
+        }).error(function (xhr, status, error) {
+            kendo.ui.progress($("#Container"), false);
+            alert(xErr(xhr.responseText));
+        });
+        //    .fail(function (partialViewResult) {
+        //    $('#Container').css('cursor', 'default');
+        //    kendo.ui.progress($("#Container"), false);
+        //    alert(xErr(partialViewResult.responseText));
+        //});
+
+    }
+    function dropDownList_change(e) {
+        kendo.ui.progress($("#Container"), true);
+        clear(false);
+        var isam = ($('[name="AMorPMValue"]:radio:checked').val() === "AM");
+        updateForm(isam);
+        kendo.ui.progress($("#Container"), false);
+    }
+    function dropDownListPick_change(e) {
+        kendo.ui.progress($("#Container"), true);
+        var isam = ($('[name="AMorPMValue"]:radio:checked').val() === "AM");
+        updateForm(isam);
+        kendo.ui.progress($("#Container"), false);
+    }
+    function dropDownListDrop_change(e) {
+        kendo.ui.progress($("#Container"), true);
+        var isam = ($('[name="AMorPMValue"]:radio:checked').val() === "AM");
+        updateForm(isam);
+        kendo.ui.progress($("#Container"), false);
+    }
+    function booking_validate(e) {
+
+    }
+    function booking_succeeded(e) {
+        kendo.ui.progress($("#Container"), false);
+    }
+    function booking_failed(e) {
+        kendo.ui.progress($("#Container"), false);
+        alert(xErr(e.responseText));
+    }
+
+    function booking_begin(e) {
+        kendo.ui.progress($("#Container"), true);
+    }
+</script>
+<script>
+    function windowOpen(e) {
+        e.sender.center();
+    }
+    function No_onclick(e) {
+        var kendoWindow = $("#ViolationError").data("kendoWindow");
+        kendoWindow.close();
+        kendoWindow.destroy();
+    }
+    function buttonNo_onclick(idtobeset) {
+        var kendoWindow = $("#DoubleBooking").data("kendoWindow");
+        kendoWindow.close();
+        kendoWindow.destroy();
+    }
+    function buttonYes_onclick(cancellingflexid, date, routeId, pickId, dropId, tripId, b, p, wheelChair) {
+        var isam = $("#AMorPMValue").val().toUpperCase() == "AM";
+        var favorite = $("#IsFavorite").prop('checked');
+
+        $.ajax({
+            url: "/Flex/BookFlexDoubleBook",
+            type: "POST",
+            data: { isAM: isam, d: date, rid: routeId, tid: tripId, pid: pickId, did: dropId, bike: b, park: p, wc: wheelChair, fav: favorite, db: false, cid: cancellingflexid }
+        }).done(function (partialViewResult) {
+            if (partialViewResult == "") {
+
+                window.location = "/Flex/MyFlex";
+            }
+            else {
+                if ($("#DoubleBooking").data("kendoWindow") != null) {
+                    var kendoWindow = $("#DoubleBooking").data("kendoWindow");
+                    kendoWindow.close();
+                    kendoWindow.destroy();
+                }
+                $("#divPartial1").html(partialViewResult);
+            }
+        }).fail(function (partialViewResult) {
+            $('#Container').css('cursor', 'default');
+            kendo.ui.progress($("#Container"), false);
+            alert(xErr(partialViewResult.responseText));
+        });
+    }
+    function buttonDoubleBook_onclick(cancellingflexid, date, routeId, pickId, dropId, tripId, b, p, wheelChair) {
+        var isam = $("#AMorPMValue").val().toUpperCase() == "AM";
+        var favorite = $("#IsFavorite").prop('checked');
+        $.ajax({
+            url: "/Flex/BookFlexDoubleBook",
+            type: "POST",
+            data: { isAM: isam, d: date, rid: routeId, tid: tripId, pid: pickId, did: dropId, bike: b, park: p, wc: wheelChair, fav: favorite, db: true, cid: cancellingflexid }
+        }).done(function (partialViewResult) {
+            if (partialViewResult == "") {
+
+                window.location = "/Flex/MyFlex";
+            }
+            else {
+                if ($("#DoubleBooking").data("kendoWindow") != null) {
+                    var kendoWindow = $("#DoubleBooking").data("kendoWindow");
+                    kendoWindow.close();
+                    kendoWindow.destroy();
+                }
+                $("#divPartial1").html(partialViewResult);
+            }
+        }).fail(function (partialViewResult) {
+            $('#Container').css('cursor', 'default');
+            kendo.ui.progress($("#Container"), false);
+            alert(xErr(partialViewResult.responseText));
+        });
+    }
+    function popup() {
+        var div = $("#" + currentelement).html();
+        var kendowWindow = $("<div id='Kendo" + currentelement + "'/>").kendoWindow({
+            title: "Book StandBy / Flex",
+            resizable: false,
+            modal: true,
+            minwidth: 400,
+            minheight: 300,
+            deactivate: function () {
+                this.destroy();
+            },
+            close: function (e) {
+                if (notprocessed.length > 0 && notprocesseddata.length > 0) {
+                    currentid = notprocessed.pop();
+                    currentdata = notprocesseddata.pop();
+                    callonstart(currentid, currentdata);
+                }
+                else {
+                    kendo.ui.progress($("#Container"), true);
+                    window.location = "/Flex/MyFlex";
+                    kendo.ui.progress($("#Container"), false);
+                }
+            }
+        });
+        kendowWindow.data("kendoWindow").content(div).center().open();
+        fbSchedsChange(currentelement);
+    }
+</script>
+
+<div style="width: 100%; padding: 0px;">
+    <div>
+    </div>
+</div>
+
+<form action="/Flex/BookFlex" data-ajax="true" data-ajax-begin="booking_begin" data-ajax-confirm="I acknowledge that if I park my vehicle in a parking lot area provided for Connector riders, neither Microsoft nor the property owner of the parking lot is responsible for any damage or theft of vehicles or its contents.
+
+I also understand that it is my responsibility to use pedestrian sidewalks when walking to and from Connector stops." data-ajax-failure="booking_failed" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-success="booking_succeeded" data-ajax-update="#divPartial1" id="form0" method="post">    <fieldset style="width: 100%">
+        <legend>Book a One-Time Flex Trip</legend>
+        <table>
+            <tr>
+                <td style="width: 100%; text-align: left; padding: 10px;">
+                    <span style="padding: 20px;">
+                        <input data-val="true" data-val-required="The AM or PM specification is required." id="AMorPMValue" name="AMorPMValue" type="radio" value="AM" />
+                        <label for="AM">AM</label>
+                    </span>
+                    <span style="padding: 20px;">
+                        <input checked="checked" id="AMorPMValue" name="AMorPMValue" type="radio" value="PM" />
+                        <label for="PM">PM</label>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="td-padded" style="padding-bottom: 0;">
+<a href="/WheelchairSettings"> Need Wheelchair Lift? Save Settings Here </a>                </td>
+            </tr>
+            <tr>
+                <td class="td-padded">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="vertical-align: top;">
+                                <table>
+                                    <tr>
+                                        <td>
+<input data-val="true" data-val-required="The Bike Rack field is required." id="NeedsBikeRack" name="NeedsBikeRack" type="checkbox" value="true" /><input name="NeedsBikeRack" type="hidden" value="false" /><label for="NeedsBikeRack">Bike Rack</label>                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="vertical-align: bottom;">
+                                <div style="float: right;">
+                                    <label for="Date" style="position:relative;top:-6px;">Date</label>
+                                    <input data-val="true" data-val-date="The field Date must be a date." data-val-required="The Date is required." id="DatePicker" name="DatePicker" style="" type="text" value="12/20/2016" /><script>
+	jQuery(function(){jQuery("#DatePicker").kendoDatePicker({"change":DatePicker_change,"format":"d","min":new Date(2016,11,20,0,0,0,0),"max":new Date(2017,0,3,19,37,3,228)});});
+</script>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="td-padded">
+                    <input data-val="true" data-val-required="The Route is required." id="DropDownList" name="DropDownList" style="width:350px;" type="text" value="11011" /><script>
+	jQuery(function(){jQuery("#DropDownList").kendoDropDownList({"change":dropDownList_change,"dataSource":[{"ID":11008,"RouteMasterID":22,"Name":"BALLARD-WHITTIER HEIGHTS PM","Description":"BALLARD-WHITTIER","Runs":[]},{"ID":11030,"RouteMasterID":44,"Name":"BELLTOWN-QUEEN ANNE-BELLEVUE PM","Description":"QABELVPM","Runs":[]},{"ID":11009,"RouteMasterID":23,"Name":"BELLTOWN-QUEEN ANNE-REDMOND PM","Description":"BELLTOWN-QUEEN ANNE-REDMOND","Runs":[]},{"ID":11010,"RouteMasterID":24,"Name":"BOTHELL EXPRESS PM","Description":"BOTHELL EXPRESS","Runs":[]},{"ID":11025,"RouteMasterID":39,"Name":"CAPITOL HILL-BELLEVUE PM","Description":"CAPITOL HILL-BELLEVUE","Runs":[]},{"ID":11011,"RouteMasterID":25,"Name":"CAPITOL HILL-REDMOND PM","Description":"CAPITOL HILL-REDMOND","Runs":[]},{"ID":11012,"RouteMasterID":26,"Name":"COLUMBIA CITY-MT BAKER PM","Description":"COLUMB CITY-MT BAKER","Runs":[]},{"ID":11013,"RouteMasterID":27,"Name":"DUVALL EXPRESS PM","Description":"DUVALL EXPRESS","Runs":[]},{"ID":11014,"RouteMasterID":28,"Name":"FREMONT-WALLINGFORD PM","Description":"FREMONT-WALLINGFORD","Runs":[]},{"ID":11015,"RouteMasterID":29,"Name":"LAURELHURST-WEDGWOOD PM","Description":"LAURELHURST-WEDGWOOD","Runs":[]},{"ID":11016,"RouteMasterID":30,"Name":"LESCHI-MADRONA-MADISON PARK PM","Description":"LESCHI-MADRONA-MADISON","Runs":[]},{"ID":11017,"RouteMasterID":31,"Name":"MAPLE VALLEY-KENT PM","Description":"MAPLE VALLEY-KENT","Runs":[]},{"ID":11018,"RouteMasterID":32,"Name":"MILL CREEK EXPRESS PM","Description":"MILL CREEK EXPRESS","Runs":[]},{"ID":11019,"RouteMasterID":33,"Name":"MONROE EXPRESS PM","Description":"MONROE EXPRESS","Runs":[]},{"ID":11020,"RouteMasterID":34,"Name":"PHINNEY RIDGE-GREENLAKE PM","Description":"PHINNEY-GREENLAKE","Runs":[]},{"ID":11021,"RouteMasterID":35,"Name":"REDMOND RIDGE PM","Description":"REDMOND RIDGE","Runs":[]},{"ID":11022,"RouteMasterID":36,"Name":"RENTON-RENTON HIGHLANDS PM","Description":"RENTON-HIGHLANDS","Runs":[]},{"ID":11023,"RouteMasterID":37,"Name":"S EVERETT-MILLCREEK PM","Description":"S EVERETT-MILLCREEK","Runs":[]},{"ID":11024,"RouteMasterID":38,"Name":"SAMMAMISH PLATEAU PM","Description":"SAMMAMISH PLATEAU","Runs":[]},{"ID":11026,"RouteMasterID":40,"Name":"SNOHOMISH-BOTHELL PM","Description":"SNOHOMISH-BOTHELL","Runs":[]},{"ID":11027,"RouteMasterID":41,"Name":"SNOQUALMIE-ISSAQUAH PM","Description":"SNOQUALMIE-ISSAQUAH","Runs":[]},{"ID":11028,"RouteMasterID":42,"Name":"WEST SEATTLE PM","Description":"WEST SEATTLE","Runs":[]}],"dataTextField":"Name","dataValueField":"ID","optionLabel":"Select a Route..."});});
+</script>
+                </td>
+            </tr>
+            <tr>
+                <td class="td-padded">
+                        <table style="width: 100%;" id="tableStops">
+                            <tr>
+                                <td>
+                                    *<label for="SelectedPickupStop">Pickup Stop</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input data-val="true" data-val-required="The Pickup Stop is required." id="DropDownListPick" name="DropDownListPick" style="width:350px;" type="text" value="1" /><script>
+	jQuery(function(){jQuery("#DropDownListPick").kendoDropDownList({"change":dropDownListPick_change,"dataSource":[{"ID":1,"Name":"OVERLAKE TRANSIT CENTER","Address":null,"City":null,"Latitude":47.644307,"LatitudeWaypoint":null,"Longitude":-122.132564,"LongitudeWaypoint":null,"StopRadius":0,"Description":"","ZipCode":null,"IsPick":false,"IsDrop":false,"IsHub":false,"DistanceFromStop":0,"SecondsFromStop":0,"RoutesServiced":[]},{"ID":10,"Name":"COMMONS TRANSPORTATION CENTER","Address":null,"City":null,"Latitude":47.64306987,"LatitudeWaypoint":null,"Longitude":-122.13992611,"LongitudeWaypoint":null,"StopRadius":0,"Description":"","ZipCode":null,"IsPick":false,"IsDrop":false,"IsHub":false,"DistanceFromStop":0,"SecondsFromStop":0,"RoutesServiced":[]}],"dataTextField":"Name","dataValueField":"ID","optionLabel":" "});});
+</script>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    *<label for="SelectedDropoffStop">Dropoff Stop</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input data-val="true" data-val-required="The Dropoff Stop is required." id="DropDownListDrop" name="DropDownListDrop" style="width:350px;" type="text" value="68" /><script>
+	jQuery(function(){jQuery("#DropDownListDrop").kendoDropDownList({"change":dropDownListDrop_change,"dataSource":[{"ID":67,"Name":"E. PIKE ST. \u0026 SUMMIT AVE.","Address":null,"City":null,"Latitude":47.614092,"LatitudeWaypoint":null,"Longitude":-122.32567,"LongitudeWaypoint":null,"StopRadius":0,"Description":"","ZipCode":null,"IsPick":false,"IsDrop":false,"IsHub":false,"DistanceFromStop":0,"SecondsFromStop":0,"RoutesServiced":[]},{"ID":68,"Name":"16TH AVE. E. \u0026 E. THOMAS ST.","Address":null,"City":null,"Latitude":47.620376,"LatitudeWaypoint":null,"Longitude":-122.311398,"LongitudeWaypoint":null,"StopRadius":0,"Description":"","ZipCode":null,"IsPick":false,"IsDrop":false,"IsHub":false,"DistanceFromStop":0,"SecondsFromStop":0,"RoutesServiced":[]},{"ID":69,"Name":"19TH AVE E \u0026 E HARRISON ST","Address":null,"City":null,"Latitude":47.6218,"LatitudeWaypoint":null,"Longitude":-122.307342,"LongitudeWaypoint":null,"StopRadius":0,"Description":"","ZipCode":null,"IsPick":false,"IsDrop":false,"IsHub":false,"DistanceFromStop":0,"SecondsFromStop":0,"RoutesServiced":[]}],"dataTextField":"Name","dataValueField":"ID","optionLabel":" "});});
+</script>
+                                </td>
+                            </tr>
+                        </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="td-padded">
+                </td>
+            </tr>
+            <tr>
+                <td class="td-padded">
+                    <input data-val="true" data-val-required="The IsFavorite field is required." id="IsFavorite" name="IsFavorite" type="checkbox" value="true" /><input name="IsFavorite" type="hidden" value="false" />
+        <label for="IsFavorite">Save as my Default PM Flex Trip</label>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="td-padded" style="text-align: center;">
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
+<script>
+
+    function enableordisablebutton() {
+        if ($("input[name='rbScheds']") != null && $("#button").data("kendoButton") != null) {
+            if ($("input[name='rbScheds']:checked").length > 0) {
+                $("#button").data("kendoButton").enable(true);
+            } else {
+                $("#button").data("kendoButton").enable(false);
+            }
+        }
+    }
+
+    $(document).ready(function () {
+        enableordisablebutton();
+        //if($("#DoubleBooking").data("kendoWindow") != null)
+        //{
+        //    $("#DoubleBooking").data("kendoWindow").center();
+        //}
+    });
+</script>
+<style scoped>
+         .PageContent {
+             padding: 0px !important;
+         }
+</style>
+</div>
+
+
+        </div>
+    </div>
+    <footer>
+        
+        <div style="color: white; text-align: center; padding: 10px; font-weight: 100; font-size: 15px;">
+            <a href='/Account/LogOff'>
+                <span>
+                    <span style="padding: 15px;">Log Off</span>
+                </span>
+            </a>
+            <a href='/Home/SiteMap'>
+                <span>
+                    <span style="padding: 15px;">Site Map</span>
+                </span>
+            </a>
+            <a href='/Account/Privacy'>
+                <span>
+                    <span style="padding: 15px;">Privacy statment</span>
+                </span>
+            </a>
+        </div>
+        <div class="logo-box">
+            <img src="/Images/Connector.png" style="position:absolute;margin:auto;top:0;left:0;right:0;bottom:0; height: inherit;" alt="MS Logo" title="MS Logo" />
+        </div>
+    </footer>
+
+    <script src="/bundles/bootstrap?v=Pn2k_02rZkY8DPE1hp5YHNI-isXJwoXRUt82hlLjVzg1"></script>
+
+    
+    <script type="text/javascript" src="/Scripts/Connector.js"></script>
+
+    
+
+</body>
+</html>
+
